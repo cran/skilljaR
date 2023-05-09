@@ -14,7 +14,6 @@
 #' 
 #' @param user_ids Vector of user id's for which you want course progress data
 #' @param api_token Your personalized token provided by 'Skilljar'
-#' @param encoding_ API data encoding, do not use unless there is an error
 #' 
 #' @import httr
 #' @import dplyr
@@ -42,33 +41,36 @@
 #' api_token = "my-token")
 #' }
 
-get_course_progress <- function(user_ids, api_token, encoding_ = "UTF-8"){
+get_course_progress <- function(user_ids, api_token){
   
   token <- jsonlite::base64_enc(api_token)
-  
+  # i <- 1
   map_across_users <- function(.x){
+
     api_path <- paste0("https://api.skilljar.com/v1/users/",
                        .x,
                        "/published-courses")
     
     get_results <- httr::GET(api_path,
-                             httr::add_headers(
-                               "Authorization" = paste(
-                                 "Basic",
-                                 gsub("\n", "", token)),
-                               "Content-Type" = paste0(
-                                 "application/x-www-form-urlencoded;charset=",
-                                 encoding_)),
-                             type = "basic"
+                       httr::add_headers(
+                         "Authorization" = paste(
+                           "Basic",
+                           gsub("\n", "", token)),
+                         "Content-Type" = paste0(
+                           "application/x-www-form-urlencoded;charset=UTF-8")),
+                       type = "basic"
     )
-    get_text <- httr::content(get_results, "text", encoding = encoding_)
+    get_text <- httr::content(get_results, "text", encoding = "UTF-8")
     
     ## skip this if there were no results for the user
     if(get_text != "[]"){
-      user_progress <- as.data.frame(jsonlite::fromJSON(get_text, flatten = TRUE)) %>%
+      user_progress <- as.data.frame(jsonlite::fromJSON(get_text,
+                                                        flatten = TRUE)) %>%
         mutate(user_id = .x) %>%
         select(-.data$all_enrollments)
     }
+    # i <- 1 + 1
+
   }
   all_progress <- purrr::map_dfr(user_ids, map_across_users)
 }
