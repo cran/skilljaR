@@ -1,9 +1,11 @@
-fd3da0fba122c20df964e54c25fc9582 *DESCRIPTION
-c33d592fc1a2248e626a5d35b31db7f5 *NAMESPACE
-5439031a19286db0351ac53a49ccdb1f *R/get_course_progress.R
+0579fbd76dd8b9aa331c15e32130ee63 *DESCRIPTION
+3cf11beddc2fa8339543c08b43012d03 *NAMESPACE
+f194c880aa4c63684ad924004b6bee46 *R/get_course_paths.R
+ad2b15979db045b0dba719550859f19f *R/get_course_progress.R
 ee7d6dc64588c4e920f747f3f8b2f6a3 *R/get_published_courses.R
 c2069530e73442db42ca6237edc7ace3 *R/get_users.R
 f3b1a7db8f01ddef235be587287950f6 *README.md
+38de1afda1346dd9665ab2c561b9862c *man/get_course_paths.Rd
 81dbbfe04edc9f98ee466ec4ac82e904 *man/get_course_progress.Rd
 5cb19f3f3eeb8e69a33974a9af49ddd5 *man/get_published_courses.Rd
 f95a171d37c5b76b6373da3856939bd9 *man/get_users.Rd
