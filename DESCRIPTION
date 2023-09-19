@@ -1,6 +1,6 @@
 Package: skilljaR
 Title: Connect to Your 'Skilljar' Data
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person(given = "Chris",
            family = "Umphlett",
@@ -16,8 +16,8 @@ Imports: httr (>= 1.4.2), jsonlite (>= 1.7.2), purrr (>= 0.3.4), dplyr
         (>= 1.1.0), magrittr (>= 2.0.1)
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-06-09 13:40:20 UTC; c.umphlett
+Packaged: 2023-09-19 13:25:20 UTC; c.umphlett
 Author: Chris Umphlett [aut, cre]
 Maintainer: Chris Umphlett <christopher.umphlett@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-06-09 14:00:02 UTC
+Date/Publication: 2023-09-19 16:00:02 UTC
